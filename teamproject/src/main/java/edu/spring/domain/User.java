@@ -2,12 +2,12 @@ package edu.spring.domain;
 
 public class User {
 	
-	private String userId;
-	private String userPw;
-	private String userEmail;
-	private String phone;
-	private int point;
-	private int certification;
+	private String userId;		// 유저아이디
+	private String userPw;		// 유저 비번
+	private String userEmail;	// 유저 이메일
+	private String phone;		// 유저 폰
+	private int point;			// 유저 포인트
+	private int certification;	// 이메일 인증 여부 0(false) 아니면 1(true)
 	
 	public User () {}
 
