@@ -8,18 +8,23 @@ public class Project {
 	private String title;		  // 제목
 	private String content;		  // 내용
 	private int recommendation;	  // 추천수
-	private String category;	  // 카테고리
+	private int category;	  // 카테고리
 	private int currentAmount;    // 현재 금액
 	private int targetAmount;  	  // 목표 금액
-	private int userId;			  // 프로젝트 작성자 아이디
+	private String userId;			  // 프로젝트 작성자 아이디
 	private Date targetTime;	  // 프로젝트 목표 시간 
 	private Date regTime;		  // 프로젝트 작동 시간
-	private boolean finished;	  // 종료여부
+	private int readCnt;		//조회수
+	private int replyCnt;		//댓글수
+	private int finished;	  // 종료여부
 	
 	public Project() {}
+	
+			
 
-	public Project(int pno, String title, String content, int recommendation, String category, int currentAmount,
-			int targetAmount, int userId, Date targetTime, Date regTime, boolean finished) {
+	public Project(int pno, String title, String content, int recommendation, int category, int currentAmount,
+			int targetAmount, String userId, Date targetTime, Date regTime, int readCnt, int replyCnt,
+			int finished) {
 		super();
 		this.pno = pno;
 		this.title = title;
@@ -31,8 +36,15 @@ public class Project {
 		this.userId = userId;
 		this.targetTime = targetTime;
 		this.regTime = regTime;
+		this.readCnt = readCnt;
+		this.replyCnt = replyCnt;
 		this.finished = finished;
 	}
+
+
+
+
+
 
 	public int getPno() {
 		return pno;
@@ -66,11 +78,11 @@ public class Project {
 		this.recommendation = recommendation;
 	}
 
-	public String getCategory() {
+	public int getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(int category) {
 		this.category = category;
 	}
 
@@ -90,13 +102,43 @@ public class Project {
 		this.targetAmount = targetAmount;
 	}
 
-	public int getUserId() {
+	
+
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+
+
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+
+
+	public int getReadCnt() {
+		return readCnt;
+	}
+
+
+
+	public void setReadCnt(int readCnt) {
+		this.readCnt = readCnt;
+	}
+
+
+
+	public int getReplyCnt() {
+		return replyCnt;
+	}
+
+
+
+	public void setReplyCnt(int replyCnt) {
+		this.replyCnt = replyCnt;
+	}
+
+
 
 	public Date getTargetTime() {
 		return targetTime;
@@ -114,11 +156,11 @@ public class Project {
 		this.regTime = regTime;
 	}
 
-	public boolean isFinished() {
+	public int isFinished() {
 		return finished;
 	}
 
-	public void setFinished(boolean finished) {
+	public void setFinished(int finished) {
 		this.finished = finished;
 	}
 
@@ -127,7 +169,7 @@ public class Project {
 		return "Project [pno=" + pno + ", title=" + title + ", content=" + content + ", recommendation="
 				+ recommendation + ", category=" + category + ", currentAmount=" + currentAmount + ", targetAmount="
 				+ targetAmount + ", userId=" + userId + ", targetTime=" + targetTime + ", regTime=" + regTime
-				+ ", finished=" + finished + "]";
+				+", readCnt="+readCnt+", replyCnt="+replyCnt +", finished=" + finished + "]";
 	}
 	
 	

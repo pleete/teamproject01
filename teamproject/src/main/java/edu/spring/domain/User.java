@@ -3,7 +3,7 @@ package edu.spring.domain;
 public class User {
 	
 	private String userId;		// 유저아이디
-	private String userPw;		// 유저 비번
+	private String userPwd;		// 유저 비번
 	private String userEmail;	// 유저 이메일
 	private String phone;		// 유저 폰
 	private int point;			// 유저 포인트
@@ -11,10 +11,10 @@ public class User {
 	
 	public User () {}
 
-	public User(String userId, String userPw, String userEmail, String phone, int point, int certification) {
+	public User(String userId, String userPwd, String userEmail, String phone, int point, int certification) {
 		super();
 		this.userId = userId;
-		this.userPw = userPw;
+		this.userPwd = userPwd;
 		this.userEmail = userEmail;
 		this.phone = phone;
 		this.point = point;
@@ -29,12 +29,12 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getUserPw() {
-		return userPw;
+	public String getUserPwd() {
+		return userPwd;
 	}
 
-	public void setUserPw(String userPw) {
-		this.userPw = userPw;
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
 	}
 
 	public String getUserEmail() {
@@ -71,7 +71,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userPw=" + userPw + ", userEmail=" + userEmail + ", phone=" + phone
+		return "User [userId=" + userId + ", userPwd=" + userPwd + ", userEmail=" + userEmail + ", phone=" + phone
 				+ ", point=" + point + ", certification=" + certification + "]";
 	}
 	

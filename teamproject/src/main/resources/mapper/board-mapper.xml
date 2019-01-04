@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="edu.spring.ProjectMapper">
+
+	<!-- SQL 문장들을 정의 -->
+	<!-- Board table -->
+	<select id="selectAll" resultType="Board">
+		SELECT * FROM ${tbl_board}
+		ORDER BY ${board.bno} DESC	
+	</select>
+	
+	<select id="selectOne" resultType="Board">
+		SELECT * FROM ${tbl_board}
+		WHERE ${board.bno} =#{bno}	
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO ${tbl_board}
+		(${board.title} , ${board.content} , ${board.userId})
+		values (#{title}, #{content}, {userId})	
+	</insert>
+	
+	<update id="update">
+		UPDATE ${tbl_board}
+		SET ${board.title} = #{title},
+			${board.content} = #{content}
+			${board.regDate} = sysdate
+		WHERE ${board.bno} = #{bno}	
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM ${tbl_board}
+		WHERE ${board.bno} = #{bno}	
+	</delete>
+	
+	<update id="updateReplyCnt">
+		UPDATE ${tbl_board}
+		SET ${board.replycnt} = ${board.replycnt} + #{increment}
+		WHERE ${board.bno} = #{bno}	
+	</update>
+	
+	<select id="searchByKeyword" resultType="Board">
+		SELECT * FROM ${tbl_board}
+		WHERE
+		<if test="searchType == 1">
+			lower(${board.userId}) like lower(#{searchKeyword})			
+		</if>
+		<if test="searchType == 2">
+			lower(${board.title}) like lower(#{searchKeyword})
+		</if>
+		<if test="serachType == 3">
+			lower(${board.title}) like lower(#{searchKeyword})
+			or
+			lower(${board.content}) like lower(#{searchKeyword})		
+		</if>
+		ORDER BY ${board.bno} DESC	
+	</select>
+	
+</mapper>
