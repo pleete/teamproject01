@@ -20,7 +20,6 @@ public class Board {
 
 	public Board(int bno, String userId, int category, String title, String content, int readCnt, int replyCnt,
 			Date regDate) {
-		super();
 		this.bno = bno;
 		this.userId = userId;
 		this.category = category;

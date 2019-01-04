@@ -20,12 +20,11 @@
 	<!-- MySQL dataSource -->
 	<!-- url 부분 mysql 뒤에 바꾸기 alue="jdbc:mysql://데이터베이스 주소:포트번호/스키마이름?useSSL=false&amp;serverTimezone=UTC" -->
 	<!-- value부분과 비밀번호 설정한 후 바꾸기 -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://54.180.90.44:3306/???"></property>
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://54.180.90.44:3306/project"></property>
 		<property name="username" value="scott"></property>	
 		<property name="password" value="tiger"></property>
-		
 	</bean>
 	
 	<!-- mybatis sqlSessionFactoryBean -->
@@ -41,7 +40,12 @@
     </bean>
  
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg ref="sqlSessionFactory"></constructor-arg>
+        <constructor-arg ref="sqlSessionFactory"/>
     </bean>
-		
+    
+    <context:component-scan base-package="edu.spring.persistence"/>
+    <context:component-scan base-package="edu.spring.service"/>
+    
+    <!--  <mybatis-spring:scan base-package="edu.spring.mappers"/>
+	-->	
 </beans>
